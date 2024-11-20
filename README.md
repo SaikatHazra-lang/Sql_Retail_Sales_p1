@@ -1,14 +1,23 @@
 # Sql_Retail_Sales_p1
+ ```sql
 Select * from Retail_Sales
+```
 --2. Data Exploration & Cleaning
 
 -- **Record Count**: Determine the total number of records in the dataset.
+ ```sql
      select count(*) from Retail_Sales
--- **Customer Count**: Find out how many unique customers are in the dataset
+ ```
+-- **Customer Count: Find out how many unique customers are in the dataset **
+ ```sql
 .    select count(distinct customer_id) from Retail_Sales
--- **Category Count**: Identify all unique product categories in the dataset.
+ ```
+-- **Category Count**: **Identify all unique product categories in the dataset.**
+ ```sql
      select count(distinct category) from Retail_Sales
--- **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
+ ```
+-- **Null Value Check: Check for any null values in the dataset and delete records with missing data.**
+ ```sql
      Select * from Retail_Sales
 	 where 
 	 transactions_id is null
@@ -25,8 +34,10 @@ Select * from Retail_Sales
 	 or
 	 cogs is null
 	 or
-	 total_sale is null 
+	 total_sale is null
+```
 -- Data Cleaning
+   ```sql
 delete from Retail_Sales
 where
  transactions_id is null
@@ -44,13 +55,14 @@ where
 	 cogs is null
 	 or
 	 total_sale is null 
---Data Exploration
---How many sales we have?
+  ```
+--**Data Exploration**
+--**How many sales we have?**
 select count(*) from Retail_Sales
---How many customers we have ?
+--**How many customers we have ?**
  select count(distinct customer_id) from Retail_Sales
 
- --Data Analysis and Business key problems & answers.
+ --**Data Analysis and Business key problems & answers.**
 
 
  --1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
@@ -65,13 +77,15 @@ select count(*) from Retail_Sales
  select * from 
   Retail_Sales
   where category='Clothing' and quantiy>=4 and Datepart(Year,sale_date) = 2022 and Datepart(MONTH,sale_date)=11
-
+```
 --3. **Write a SQL query to calculate the total sales (total_sale) for each category.**
+
  ```sql
   select category,sum(total_Sale) as net_sales from 
   Retail_Sales
   group by category
 ```
+
 --4. **Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.**
  ```sql
   select round(avg(age),2)as avg_age from 
