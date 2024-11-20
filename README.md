@@ -4,7 +4,7 @@ Select * from Retail_Sales
 ```
 --2. Data Exploration & Cleaning
 
--- **Record Count**: Determine the total number of records in the dataset.
+-- **Record Count: Determine the total number of records in the dataset.**
  ```sql
      select count(*) from Retail_Sales
  ```
